@@ -8,13 +8,16 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "name": "Launch add-on",
+            "name": "Firefox",
             "addonPath": "${workspaceFolder}/dist",
             "reloadOnChange": {
                 "watch": "${workspaceFolder}/dist",
                 "ignore": "**/node_modules/**"
             },
-            "url": "about:debugging#/runtime/this-firefox"
+            "url": "about:debugging#/runtime/this-firefox",
+            "keepProfileChanges": true,
+            "profileDir": ".",
+            "clearConsoleOnReload": true
         }
     ]
 }
