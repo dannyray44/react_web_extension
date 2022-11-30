@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { createRoot } from 'react-dom/client';
+import { IconButton } from '@mui/material';
+import CachedIcon from '@mui/icons-material/Cached';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,25 +53,34 @@ export default function BasicTabs() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Sites Info" {...a11yProps(0)} />
-          <Tab label="Bets" {...a11yProps(1)} />
+          <Tab label="Bets" {...a11yProps(0)} />
+          <Tab label="Funds" {...a11yProps(1)} />
           <Tab label="Help" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One!
+        <BetsPannel />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two!!
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three!!
+        Item Three!!!
       </TabPanel>
     </Box>
   );
 }
 
+function BetsPannel() {
+  return(
+    <>
+      <IconButton aria-label='Refresh'>
+        <CachedIcon />
+      </IconButton>
+    </>
+  )
+}
+
 const container = document.getElementById("react-target");
 const root = createRoot(container);
 root.render(<BasicTabs />);
-
